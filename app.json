@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "ProjectSA",
+    "slug": "ProjectSA",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
