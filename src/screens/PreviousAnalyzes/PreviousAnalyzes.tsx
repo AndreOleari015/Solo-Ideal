@@ -79,6 +79,14 @@ const PreviousAnalyzes: React.FC = () => {
         )
     }
 
+    const listEmpty = () => {
+        return (
+            <View style={styles.listEmptyContainer}>
+                <Text style={styles.listEmptyLabel}>Sem analises anteriores</Text>
+            </View>
+        )
+    }
+
     const _renderItem = ({ item }) => {
         return <Item dataItem={item} />
     }
@@ -88,11 +96,13 @@ const PreviousAnalyzes: React.FC = () => {
             backButton
             title='Análises anteriores'>
             <FlatList
-                data={DATA.filter(item => (
+                data={DATA ? DATA.filter(item => (
                     CULTURAS[item.cultureIndex].title.toLowerCase().includes(value.toLowerCase())
-                ))}
+                )) :
+                    DATA}
                 keyExtractor={(item, index) => index.toString()}
                 ListHeaderComponent={listHeader}
+                ListEmptyComponent={listEmpty}
                 renderItem={_renderItem} />
         </Container>
     )
@@ -119,6 +129,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         justifyContent: "center",
         backgroundColor: Colors.branco,
+    },
+    listEmptyContainer: {
+        flex: 1,
+        height: 250,
+        alignItems: "center",
+        marginHorizontal: 20,
+        justifyContent: 'center',
+    },
+    listEmptyLabel: {
+        fontSize: 24,
+        fontFamily: Fonts.Montserrat_700,
     },
 })
 

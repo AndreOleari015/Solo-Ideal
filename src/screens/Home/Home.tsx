@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Container from '../../components/Container/Container';
 import Button from './components/Button';
@@ -24,7 +25,8 @@ const Home: React.FC = () => {
     }
 
     useEffect(() => {
-        ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT)
+        ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+        AsyncStorage.clear();
     }, [])
     return (
         <Container

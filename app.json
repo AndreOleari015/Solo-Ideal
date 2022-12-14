@@ -16,6 +16,9 @@
       "eas": {
         "projectId": "dcc76b4d-d55c-4dc1-8ea2-669adde8053b"
       }
+    },
+    "android": {
+      "package": "com.andreoleari.ProjectSA"
     }
   }
 }
